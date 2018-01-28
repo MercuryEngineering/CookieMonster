@@ -1,6 +1,6 @@
 # CookieMonster
 
-[![GoDoc](https://godoc.org/github.com/MercuryEngineering/CookieMonster?status.svg)](https://godoc.org/github.com/MercuryEngineering/CookieMonster)
+[![GoDoc](https://godoc.org/github.com/MercuryEngineering/CookieMonster?status.svg)](https://godoc.org/github.com/MercuryEngineering/CookieMonster) [![Build Status](https://travis-ci.org/MercuryEngineering/CookieMonster.png?branch=master)](https://travis-ci.org/MercuryEngineering/CookieMonster)
 
 A simple package for parsing [Netscape Cookie File](http://curl.haxx.se/rfc/cookie_spec.html) formatted cookies into Go [Cookies](https://golang.org/pkg/net/http/#Cookie)
 
