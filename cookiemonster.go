@@ -55,12 +55,13 @@ func ParseFile(path string) ([]*http.Cookie, error) {
 		}
 
 		cookie := &http.Cookie{
-			Name:    split[5],
-			Value:   split[6],
-			Path:    split[2],
-			Domain:  split[0],
-			Expires: time.Unix(int64(expires), 0),
-			Secure:  strings.ToLower(split[3]) == "true",
+			Name:     split[5],
+			Value:    split[6],
+			Path:     split[2],
+			Domain:   split[0],
+			Expires:  time.Unix(int64(expires), 0),
+			Secure:   strings.ToLower(split[3]) == "true",
+			HttpOnly: strings.ToLower(split[1]) == "true",
 		}
 		cookies = append(cookies, cookie)
 	}
