@@ -70,7 +70,7 @@ func ParseFile(path string) ([]*http.Cookie, error) {
 			Value:    split[6],
 			Path:     split[2],
 			Domain:   split[0],
-			Expires:  time.Unix(int64(expires), expiresNsec),
+			Expires:  time.Unix(int64(expiresSec), int64(expiresNsec)),
 			Secure:   strings.ToLower(split[3]) == "true",
 			HttpOnly: strings.ToLower(split[1]) == "true",
 		}
