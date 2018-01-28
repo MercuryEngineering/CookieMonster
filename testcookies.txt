@@ -1,0 +1,5 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# URL: https://www.google.com/?gws_rd=ssl
+.google.com	FALSE	/	FALSE	1519747181	1P_JAR	2018-1-28-15
+.google.com	FALSE	/	FALSE	1532966381.010288	NID	122=BppwibmnfuqzhD6dTEWbW3YnfNdt1u1bc5qPLN2rH9jQG4iMkkGtRUUcAbI1erJacx8McNNUoyv6aqwRz7Dlpc5Ow8W3cYQfDxHZyMlDMGORKW40Pu9v2qhdXeRrRUb0
