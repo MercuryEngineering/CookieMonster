@@ -49,9 +49,20 @@ func ParseFile(path string) ([]*http.Cookie, error) {
 		}
 
 		split := strings.Split(line, "\t")
-		expires, err := strconv.Atoi(strings.Split(split[4], ".")[0])
+
+		expliresSplit := strings.Split(split[4], ".")
+
+		expiresSec, err := strconv.Atoi(expliresSplit[0])
 		if err != nil {
 			return nil, err
+		}
+
+		expiresNsec := 0
+		if len(expliresSplit) > 1 {
+			expiresNsec, err = strconv.Atoi(expliresSplit[1])
+			if err != nil {
+				return nil, err
+			}
 		}
 
 		cookie := &http.Cookie{
@@ -59,7 +70,7 @@ func ParseFile(path string) ([]*http.Cookie, error) {
 			Value:    split[6],
 			Path:     split[2],
 			Domain:   split[0],
-			Expires:  time.Unix(int64(expires), 0),
+			Expires:  time.Unix(int64(expires), expiresNsec),
 			Secure:   strings.ToLower(split[3]) == "true",
 			HttpOnly: strings.ToLower(split[1]) == "true",
 		}
