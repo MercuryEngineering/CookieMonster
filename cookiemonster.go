@@ -24,6 +24,8 @@ package cookiemonster
 
 import (
 	"bufio"
+	"bytes"
+	"io"
 	"net/http"
 	"os"
 	"strconv"
@@ -31,7 +33,7 @@ import (
 	"time"
 )
 
-// ParseFile parses the file located at path and returns a slice of *http.Cookie or an error
+// ParseFile parses the file located at path and will return a slice of *http.Cookie or an error
 func ParseFile(path string) ([]*http.Cookie, error) {
 	f, err := os.Open(path)
 	if err != nil {
@@ -39,7 +41,17 @@ func ParseFile(path string) ([]*http.Cookie, error) {
 	}
 	defer f.Close()
 
-	scanner := bufio.NewScanner(f)
+	return Parse(f)
+}
+
+// ParseString parses s and will return a slice of *http.Cookie or an error
+func ParseString(s string) ([]*http.Cookie, error) {
+	return Parse(bytes.NewReader([]byte(s)))
+}
+
+// Parse will parse r and will return a slice of *http.Cookie or an error
+func Parse(r io.Reader) ([]*http.Cookie, error) {
+	scanner := bufio.NewScanner(r)
 
 	cookies := []*http.Cookie{}
 
