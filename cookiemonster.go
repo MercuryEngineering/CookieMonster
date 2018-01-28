@@ -19,6 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+// Package cookiemonster provides methods for parsing Netscape format cookie files into slices of http.Cookie
 package cookiemonster
 
 import (
@@ -30,6 +31,7 @@ import (
 	"time"
 )
 
+// ParseFile parses the file located at path and returns a slice of *http.Cookie or an error
 func ParseFile(path string) ([]*http.Cookie, error) {
 	f, err := os.Open(path)
 	if err != nil {
