@@ -43,8 +43,8 @@ func ParseFile(path string) ([]*http.Cookie, error) {
 
 	for scanner.Scan() {
 		line := scanner.Text()
-		if strings.HasPrefix(line, "#") {
-			// Ignore comments
+		if strings.HasPrefix(line, "#") || line == "" {
+			// Ignore comments and blank lines
 			continue
 		}
 
