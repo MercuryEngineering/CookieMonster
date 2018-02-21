@@ -72,7 +72,7 @@ func Parse(r io.Reader) ([]*http.Cookie, error) {
 		}
 
 		expiresNsec := 0
-		if len(expliresSplit) > 1 {
+		if len(expiresSplit) > 1 {
 			expiresNsec, err = strconv.Atoi(expiresSplit[1])
 			if err != nil {
 				expiresNsec = 0
