@@ -64,18 +64,18 @@ func Parse(r io.Reader) ([]*http.Cookie, error) {
 
 		split := strings.Split(line, "\t")
 
-		expliresSplit := strings.Split(split[4], ".")
+		expiresSplit := strings.Split(split[4], ".")
 
-		expiresSec, err := strconv.Atoi(expliresSplit[0])
+		expiresSec, err := strconv.Atoi(expiresSplit[0])
 		if err != nil {
 			return nil, err
 		}
 
 		expiresNsec := 0
 		if len(expliresSplit) > 1 {
-			expiresNsec, err = strconv.Atoi(expliresSplit[1])
+			expiresNsec, err = strconv.Atoi(expiresSplit[1])
 			if err != nil {
-				return nil, err
+				expiresNsec = 0
 			}
 		}
 
