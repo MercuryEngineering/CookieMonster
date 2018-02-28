@@ -9,8 +9,6 @@ matrix:
     - go: 1.7.x
     - go: 1.6.x
     - go: 1.5.x
-    - go: 1.4.x
-    - go: 1.3.x
     - go: tip
 
 script:
