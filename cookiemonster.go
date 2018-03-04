@@ -63,6 +63,10 @@ func Parse(r io.Reader) ([]*http.Cookie, error) {
 		}
 
 		split := strings.Split(line, "\t")
+		if len(split) < 7 {
+			// Ignore lines that are not long enough
+			continue
+		}
 
 		expiresSplit := strings.Split(split[4], ".")
 
